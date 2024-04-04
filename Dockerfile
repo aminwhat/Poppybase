@@ -3,6 +3,7 @@ FROM node:18-alpine AS base
 WORKDIR /usr/src/PoppyDB
 
 COPY package*.json ./
+RUN npm i
 RUN npm ci 
 
 COPY . .
