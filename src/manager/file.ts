@@ -20,10 +20,10 @@ import { getCollection } from "./collections";
 // }
 
 export function saveToFile(dbName: string, collectionName: string) {
-  fs.mkdirSync(`${dbName}`, { recursive: true });
+  fs.mkdirSync(`PoppyDB/${dbName}`, { recursive: true });
 
   fs.writeFileSync(
-    `${dbName}/${collectionName}.json`,
+    `PoppyDB/${dbName}/${collectionName}.json`,
     JSON.stringify(getCollection(collectionName))
   );
 }
