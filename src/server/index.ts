@@ -1,4 +1,5 @@
 import * as env from "../core/env";
+import * as manager from "../manager";
 import net from "net";
 
 export function ServerStart() {
@@ -16,8 +17,11 @@ export function ServerStart() {
 
   server.on("connection", (sock) => {
     sock.on("data", (data) => {
-      console.log("Received", String(data));
-      sock.write(data);
+      const jsonData = JSON.parse(data.toString());
+
+      const response = manager.manageData(jsonData);
+
+      sock.write(response);
     });
   });
 }
