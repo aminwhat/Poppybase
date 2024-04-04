@@ -52,6 +52,7 @@ function insertOne(socket, { collection, data }) {
     socket.write(
       JSON.stringify({
         collection,
+        dbName: 'PoppyDB',
         insertOne: data,
       })
     );
@@ -67,6 +68,7 @@ function findOne(socket, { collection, filter }) {
     socket.write(
       JSON.stringify({
         collection,
+        dbName: 'PoppyDB',
         findOne: {
           filter,
         },
@@ -84,6 +86,7 @@ function updateOne(socket, { collection, filter, data }) {
     socket.write(
       JSON.stringify({
         collection,
+        dbName: 'PoppyDB',
         updateOne: {
           filter,
           data
@@ -102,6 +105,7 @@ function deleteOne(socket, { collection, filter }) {
     socket.write(
       JSON.stringify({
         collection,
+        dbName: 'PoppyDB',
         deleteOne: {
           filter
         },
