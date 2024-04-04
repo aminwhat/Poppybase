@@ -1,7 +1,8 @@
+// client.js
 const net = require("net");
 
 async function run() {
-  const port = 3939;
+  const port = 3779;
   const hostname = "127.0.0.1";
 
   const socket = new net.Socket();
@@ -31,7 +32,14 @@ async function run() {
       },
     });
 
-    console.log(note);
+    console.log({ note });
+
+    await deleteOne(socket, {
+      collection: "blocks",
+      filter: {
+        _id: insertedId
+      }
+    })
   });
 }
 
@@ -79,6 +87,23 @@ function updateOne(socket, { collection, filter, data }) {
         updateOne: {
           filter,
           data
+        },
+      })
+    );
+  });
+}
+
+function deleteOne(socket, { collection, filter }) {
+  return new Promise((resolve) => {
+    socket.once("data", () => {
+      resolve();
+    });
+
+    socket.write(
+      JSON.stringify({
+        collection,
+        deleteOne: {
+          filter
         },
       })
     );

@@ -21,18 +21,27 @@ export function manageData(jsonData: any): string {
       const data = collection[filter._id];
 
       response = JSON.stringify(data);
-    } else if (jsonData.updateOne) {
-      const filter = jsonData.updateOne.filter;
-      if (filter._id) {
-        collection[filter._id] = {
-          ...collection[filter._id],
-          ...jsonData.updateOne.data,
-        };
+    }
+  } else if (jsonData.updateOne) {
+    const filter = jsonData.updateOne.filter;
+    if (filter._id) {
+      collection[filter._id] = {
+        ...collection[filter._id],
+        ...jsonData.updateOne.data,
+      };
 
-        saveToFile(jsonData.dbName, jsonData.collection);
+      saveToFile(jsonData.dbName, jsonData.collection);
 
-        response = "0";
-      }
+      response = "0";
+    }
+  } else if (jsonData.deleteOne) {
+    const filter = jsonData.deleteOne.filter;
+    if (filter._id) {
+      delete collection[filter._id];
+
+      saveToFile(jsonData.dbName, jsonData.collection);
+
+      response = "0";
     }
   }
 
