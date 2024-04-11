@@ -22,6 +22,10 @@ export class PoppyDB {
     await this.manager.init();
   }
 
+  async cacheCollectionsInit() {
+    this.cache.collectionInit({});
+  }
+
   async dispose() {
     await this.manager.dispose();
   }
