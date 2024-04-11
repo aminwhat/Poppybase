@@ -1,9 +1,14 @@
 {
   "name": "PoppyDB",
   "version": "0.0.1",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "author": "aminwhat <m.aminwhat@gmail.com>",
   "license": "MIT",
+  "type": "module",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/index.js",
