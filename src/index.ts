@@ -1,8 +1,7 @@
-import * as env from "./core/env";
-import * as server from "./server";
+import { Elysia } from "elysia";
 
-env.EnvInit();
+const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
 
-console.log("PoppyDB is starting...");
-
-server.ServerStart();
+console.log(
+  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
+);
