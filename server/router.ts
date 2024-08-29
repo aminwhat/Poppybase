@@ -1,4 +1,5 @@
 import { Router } from "express";
+import "./db/poppybase";
 
 const router = Router();
 

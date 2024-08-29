@@ -1,7 +1,7 @@
 import { parse } from "url";
 import next from "next";
 import express from "express";
-import apiRouter from "./api/router";
+import apiRouter from "./server/router";
 
 const port = parseInt(process.env.PORT || "3000", 10);
 const dev = process.env.NODE_ENV !== "production";
