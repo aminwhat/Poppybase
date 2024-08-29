@@ -1,18 +1,26 @@
 {
   "name": "poppybase",
-  "version": "1.0.50",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "bun --watch src/index.ts",
-    "build": "bun build src/index.ts",
-    "start": "NODE_ENV=production bun src/index.ts",
-    "test": "bun test"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "elysia": "latest"
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14.2.7"
   },
   "devDependencies": {
-    "bun-types": "latest"
-  },
-  "module": "src/index.js"
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.7"
+  }
 }
